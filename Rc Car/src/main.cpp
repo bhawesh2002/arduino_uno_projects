@@ -41,9 +41,6 @@ void loop()
   if (BTSerial.available())
   {
     char c = BTSerial.read();
-    Serial.print("BT Command: ");
-    Serial.println(c);
-
     lastBTTime = millis(); // update last command time
 
     switch (c)
@@ -94,6 +91,7 @@ void moveForward()
   motor2.run(FORWARD);
   motor3.run(BACKWARD);
   motor4.run(BACKWARD);
+  BTSerial.println("Foreward");
 }
 
 void moveBackward()
@@ -102,6 +100,7 @@ void moveBackward()
   motor2.run(BACKWARD);
   motor3.run(FORWARD);
   motor4.run(FORWARD);
+  BTSerial.println("Backward");
 }
 
 void turnLeft()
@@ -111,6 +110,7 @@ void turnLeft()
   motor2.run(FORWARD); // Motor 2 moves forward
   motor3.run(RELEASE); // Motor 3 moves forward
   motor4.run(RELEASE); // Motor 4 moves backward
+  BTSerial.println("Left");
 }
 
 void turnRight()
@@ -120,6 +120,7 @@ void turnRight()
   motor2.run(RELEASE);  // Motor 2 moves forward
   motor3.run(BACKWARD); // Motor 3 moves forward
   motor4.run(BACKWARD); // Motor 4 moves backward
+  BTSerial.println("Right");
 }
 
 void stopMotors()

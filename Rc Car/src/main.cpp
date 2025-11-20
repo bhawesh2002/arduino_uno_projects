@@ -1,7 +1,11 @@
 #include <Arduino.h>
 #include <AFMotor.h>
-// Using the hardware UART for HC-05
+#include <SoftwareSerial.h>
+// Using the hardware UART for HC-05 (0,1 pins)
 #define BTSerial Serial
+
+//Use SoftwareSerial when connecting to pins other than 0,1
+//SoftwareSerial BTSerial(10,11) 
 // Define motor objects using AFMotor library
 AF_DCMotor motor1(1, MOTOR12_1KHZ); // Motor 1
 AF_DCMotor motor2(2, MOTOR12_1KHZ); // Motor 2
